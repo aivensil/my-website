@@ -83,3 +83,65 @@ button {
 nav ul li a.active {
   text-decoration: underline;
 }
+
+
+/* Tombol Dark Mode */
+#themeToggle {
+  background-color: white;
+  color: #0078d7;
+  border: 2px solid #0078d7;
+  border-radius: 8px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#themeToggle:hover {
+  background-color: #0078d7;
+  color: white;
+}
+
+
+/* 🌙 Dark Mode Theme */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode header {
+  background-color: #1f1f1f;
+}
+
+body.dark-mode footer {
+  background-color: #1f1f1f;
+}
+
+body.dark-mode button {
+  background-color: #333;
+  color: white;
+}
+
+body.dark-mode nav ul li a {
+  color: #ddd;
+}
+
+
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+#formStatus {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+}

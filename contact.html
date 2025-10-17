@@ -17,15 +17,29 @@
         <li><a href="contact.html" class="active">Contact</a></li>
       </ul>
     </nav>
+    <button id="themeToggle">🌙 Dark Mode</button>
   </header>
 
-  <main>
-    <section>
-      <h2>Contact Me</h2>
-      <p>Send me a message at:</p>
-      <p><a href="mailto:example@email.com">example@email.com</a></p>
-    </section>
-  </main>
+<main>
+  <section>
+    <h2>Contact Me</h2>
+    <form id="contactForm">
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" name="name" required><br><br>
+
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" required><br><br>
+
+      <label for="message">Message:</label><br>
+      <textarea id="message" name="message" rows="4" required></textarea><br><br>
+
+      <button type="submit">Send</button>
+    </form>
+
+    <p id="formStatus"></p>
+  </section>
+</main>
+
 
   <footer>
     <p>© 2025 My Website. All rights reserved.</p>
