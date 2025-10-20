@@ -19,7 +19,8 @@
       </ul>
     </nav>
     <button id="themeToggle">🌙 Dark Mode</button>
-    <button id="logoutBtn" style="display:none;">Logout</button>
+<button id="logoutBtn" style="display: none;">⎋ Logout</button>
+
   </header>
 
   <main>
@@ -36,5 +37,27 @@
   </footer>
 
   <script src="script.js"></script>
+<script>
+  // Cek apakah user sudah login
+  const isLoggedIn = localStorage.getItem('isLoggedIn');
+
+  // Jika belum login, alihkan ke halaman login
+  if (isLoggedIn !== 'true') {
+    window.location.href = 'login.html';
+  }
+
+  // Tampilkan tombol logout kalau sudah login
+  const logoutBtn = document.getElementById('logoutBtn');
+  if (isLoggedIn === 'true') {
+    logoutBtn.style.display = 'inline-block';
+  }
+
+  logoutBtn.addEventListener('click', () => {
+    localStorage.removeItem('isLoggedIn');
+    alert('You have been logged out!');
+    window.location.href = 'login.html';
+  });
+</script>
+
 </body>
 </html>
