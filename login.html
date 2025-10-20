@@ -1,48 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login | My Website</title>
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Styling tambahan hanya untuk halaman login */
+    .login-container {
+      max-width: 400px;
+      margin: 80px auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .login-container h2 {
+      margin-bottom: 20px;
+      color: #007bff;
+    }
+
+    .login-container input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .login-container button:hover {
+      background-color: #0056b3;
+    }
+
+    .error-message {
+      color: red;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
-  <canvas id="particleCanvas"></canvas>
   <header>
     <h1>My Website</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="login.html" class="active">Login</a></li>
-      </ul>
-    </nav>
-    <button id="themeToggle">🌙 Dark Mode</button>
   </header>
 
   <main>
-    <section class="login-section">
+    <div class="login-container">
       <h2>Login</h2>
-      <form id="loginForm">
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username" required><br><br>
-
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" required><br><br>
-
-        <button type="submit">Login</button>
-      </form>
-
-      <p id="loginStatus"></p>
-    </section>
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button id="loginBtn">Login</button>
+      <p class="error-message" id="errorMsg"></p>
+    </div>
   </main>
 
   <footer>
     <p>© 2025 My Website. All rights reserved.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    const loginBtn = document.getElementById('loginBtn');
+    const errorMsg = document.getElementById('errorMsg');
+
+    loginBtn.addEventListener('click', () => {
+      const user = document.getElementById('username').value.trim();
+      const pass = document.getElementById('password').value.trim();
+
+      // Dummy credentials (bisa kamu ubah nanti)
+      const validUser = "admin";
+      const validPass = "12345";
+
+      if (user === validUser && pass === validPass) {
+        localStorage.setItem('isLoggedIn', 'true');
+        window.location.href = 'index.html';
+      } else {
+        errorMsg.textContent = "Invalid username or password!";
+      }
+    });
+  </script>
 </body>
 </html>
