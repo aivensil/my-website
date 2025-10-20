@@ -108,3 +108,37 @@ if (canvas) {
     canvas.height = window.innerHeight;
   });
 }
+
+// 🔐 LOGIN SYSTEM (sederhana di sisi frontend)
+const loginForm = document.getElementById("loginForm");
+
+if (loginForm) {
+  loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const statusText = document.getElementById("loginStatus");
+
+    // Data login contoh (bisa diganti nanti)
+    const validUsername = "admin";
+    const validPassword = "12345";
+
+    if (username === validUsername && password === validPassword) {
+      statusText.textContent = "✅ Login berhasil! Selamat datang, " + username + "!";
+      statusText.style.color = "green";
+
+      // Simpan status login di localStorage
+      localStorage.setItem("loggedIn", "true");
+      localStorage.setItem("username", username);
+
+      // Redirect ke halaman utama setelah 1 detik
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 1000);
+    } else {
+      statusText.textContent = "❌ Username atau password salah!";
+      statusText.style.color = "red";
+    }
+  });
+}
