@@ -142,3 +142,15 @@ if (loginForm) {
     }
   });
 }
+
+const logoutBtn = document.getElementById("logoutBtn");
+
+if (localStorage.getItem("loggedIn") === "true" && logoutBtn) {
+  logoutBtn.style.display = "inline-block";
+  logoutBtn.addEventListener("click", () => {
+    localStorage.removeItem("loggedIn");
+    localStorage.removeItem("username");
+    alert("Anda telah logout.");
+    window.location.reload();
+  });
+}
